@@ -1,0 +1,17 @@
+.doubleLike{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+}
+
+.doubleLike i:nth-child(1), .doubleLike i:nth-child(2){
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
+
+.doubleLike i:nth-child(2){
+    left: 7px;
+    bottom: -7px;
+    z-index: 2;
+}
