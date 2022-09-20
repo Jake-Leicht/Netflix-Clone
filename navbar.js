@@ -1,10 +1,16 @@
+import {setMovieVars} from "./movieSelection.js";
+import {movie} from "./movieSelection.js";
+export {filterPage};
+
 $(document).ready(function(){
-    /*Variables*/
+    /* 
+    ? Variables*/
     var navText = $(".navbar-item-text");
     var navItem = $(".navbar-item");
     var navItemIcon = $(".nav-icon");
 
-    /*Hidden values*/
+    /* 
+    ? Hidden values*/
     navText.hide();
 
     navItem.hover(function(){
@@ -18,7 +24,6 @@ $(document).ready(function(){
         $(this).children(navItemIcon).css({
             "padding-bottom": "4px", 
             "color": "white"});
-        $(this).children("i").css({"border-bottom": "4px solid red"});
     }, function(){
         navItem.css({
             "width": "80px",
@@ -28,6 +33,69 @@ $(document).ready(function(){
         $(this).css("color", "gray");
         $(this).children(navText).css({
             "color": "gray"});
-        $(this).children(navItemIcon).css("border-bottom", "none");
     });
+});
+
+/* 
+    ? Navbar Switching Pages*/
+let loadPage = "";
+let value = 0;
+    
+function changePages(loadPage){
+    location.replace(loadPage);
+}
+
+function filterPage(){
+    loadPage ="./filtered.html";
+    changePages(loadPage);
+}
+
+function homePage(){
+    loadPage = "./netflixClone.html";
+    changePages(loadPage);
+}
+
+$("#search-btn").click(function(){
+    loadPage = "./search.html";
+    changePages(loadPage);
+});
+
+$("#home-btn").click(function(){
+    homePage();
+});
+
+$(".back-btn").click(function(){
+    homePage();
+});
+
+$("#surpriseMe-btn").click(function(){
+    $.getScript("./movieSelection.js", function(){
+        console.log("clicked surprise me btn");
+        let rand = Math.floor(Math.random() * 3);
+        console.log(rand);
+        setMovieVars(movie[rand]);
+        let loadPage = "./movieSelection.html";
+        changePages(loadPage);
+    })
+});
+
+$("#newsPopular-btn").click(function(){
+    filterPage();
+});
+
+$("#tvShows-btn").click(function(){
+    filterPage();
+})
+
+$("#movies-btn").click(function(){
+    filterPage();
+})
+
+$("#categories-btn").click(function(){
+    loadPage = "./categories.html";
+    changePages(loadPage);
+});
+
+$("#myList-btn").click(function(){
+    filterPage();
 });

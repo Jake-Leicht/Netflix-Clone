@@ -6,7 +6,7 @@
 }
 
 .film-container{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -48,24 +48,22 @@ body{
 }
 
 .header{
-    border: 3px solid red;
+    /* border: 3px solid red; */
     font-family: 'Shippori Antique B1', sans-serif;
     color: white;
     display: flex;
-    width: 90%;
-    height: 500px;
+    width: 96%;
+    height: 60vh;
     float: right;
 }
 
 .header-details{
-    /* border: 3px solid blue; */
     width: 50%;
     padding: 10px;
 }
 
 .header-image{
     width: 50%;
-    /* border: 3px solid green; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -74,14 +72,48 @@ body{
 /*Header CSS*/
 .header-attributes-container{
     display: flex;
+    gap: 8px;
     justify-content: space-between;
     width: 50%;
+    font-size: 1.1em;
+}
+
+@media screen and (max-width: 1540px){
+    .header-attributes-container{
+        width: 375px;
+    }
+
+    .description{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .hd-icon, .aspect-ratio, .movieDuration, .releaseYear{
+        visibility: hidden;
+        display: none;
+    }
+
+    .title{
+        font-size: 38px;
+    }
+
+    .header-attributes-container{
+        width: 100%;
+        font-size: 1.0em;
+        justify-content: flex-start;
+        gap: 20px;
+    }
 }
 
 .netflixLogo{
     margin: 8px 0px 0px 8px;
     color: red;
     font-size: 2.5em;
+}
+
+.description{
+    font-size: 1.4em;
 }
 
 .filmType{

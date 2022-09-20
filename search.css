@@ -62,14 +62,14 @@ body{
 }
 
 .search-input{
-    border: 3px solid red;
     background-color: transparent;
-    color: white;
     font-size: 2.0em;
     padding: 0px;
+    margin: 8px 0px 0px 8px;
     border: none;
     position: relative;
     z-index: 2;
+    color: white;
 }
 
 .search-input:focus{

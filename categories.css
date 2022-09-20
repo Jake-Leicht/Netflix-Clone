@@ -1,27 +1,53 @@
 body{
     background-color: black !important;
-    
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 .genre-list{
     list-style-type: none;
-    font-size: 3.0em;
+    font-size: 2.8em;
     color: white;
     position: absolute;
     top: 0px;
-    margin-left: 10%;
+    margin-left: 6%;
+    z-index: 1;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 880px;
 }
 
-/*Hover doesn't work for position: absolute of parent*/
+.genre-list::-webkit-scrollbar{
+    display: none;
+}
+
 .genre-list li:hover{
-    margin: 3%;
-    border-left: 10px solid gold;
     padding-left: 10px;
-    margin-left: -5%;
-    font-size: 1.3em;
+    margin-left: -8%;
+}
+
+/* !Redundant, look to simplify*/
+.genre-list li:nth-child(1n+0):hover{
+    border-left: 10px solid gold;
+}
+
+.genre-list li:nth-child(2n+0):hover{
+    border-left: 10px solid orangered;
+}
+
+.genre-list li:nth-child(3n+0):hover{
+    border-left: 10px solid darkred;
+}
+
+.genre-list li:nth-child(4n+0):hover{
+    border-left: 10px solid darkblue;
+}
+
+.genre-list li:nth-child(5n+0):hover{
+    border-left: 10px solid purple;
+}
+
+.genre-list li:nth-child(6n+0):hover{
+    border-left: 10px solid green;
 }
 
 .divider{

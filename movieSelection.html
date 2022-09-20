@@ -12,9 +12,10 @@
     <meta name="author" content="Jake Leicht">
 
     <!--Stylesheets (CSS)-->
-    <link rel="stylesheet" href="movieSelection.css">
+    <link rel="stylesheet" href="./movieSelection.css">
     <link rel="stylesheet" href="./topTenIcon.css">
     <link rel="stylesheet" href="./doubleLike.css">
+    <link rel="stylesheet" href="popUp.css">
 
     <!--Favicon-->
     <link rel="icon" type="image/jpg" href="/images/faviconNetflix.jpg" sizes="260x260">
@@ -31,6 +32,8 @@
             <span class="releaseYear">0000</span>
             <span class="movieRating">G</span>
             <span class="movieDuration">0 mins</span>
+            <span class="hd-icon">HD</span>
+            <span class="aspect-ratio">6:1</span>
         </div>
         <div class="topMovie">
             <span class="topTen-icon">
@@ -45,19 +48,38 @@
             <span class="director">Director: </span><span class="director-input"></span><br>
             <span class="genre">Genre: <span class="genres-input"></span><br>
         </div>
-        <div class="userFeedback-btn">
-            <span><i class="fa-regular fa-thumbs-down"></i></span>
-            <span><i class="fa-regular fa-thumbs-up"></i></span>
-            <span class="doubleLike">
-                <i class="fa-regular fa-thumbs-up firstLike"></i>
-                <i class="fa-regular fa-thumbs-up secondLike"></i>
-            </span>
+        <div class="buttons-container">
+            <!-- ! popups for user feedback-->
+            <div class="userFeedback-btn button-item">
+                <span id="dislike-icon" class="popup userFeedback-btn-item" onmouseover="popUp(this)" onmouseleave="popUpClose(this)">
+                    <i class="fa-regular fa-thumbs-down"></i>
+                    <span class="popuptext feedback-dislike" id="myPopup-dislike">
+                        <strong>Not for me</strong>
+                    </span>
+                </span>
+                <span id="userFeedback-like" class="popup userFeedback-btn-item" onmouseover="popUp(this)" onmouseleave="popUpClose(this)">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <span class="popuptext feedback-like" id="myPopup-like">
+                        <strong>I like this</strong>
+                    </span>
+                </span>
+                <span id="doubleLike-container" class="popup doubleLike userFeedback-btn-item" onmouseover="popUp(this)" onmouseleave="popUpClose(this)">
+                    <i class="fa-regular fa-thumbs-up firstLike"></i>
+                    <i class="fa-regular fa-thumbs-up secondLike"></i>
+                    <span class="popuptext feedback-loveThis">
+                        <strong>I love this!</strong>
+                    </span>
+                </span>
+            </div>
+            <button class="button-item"><i class="fa-solid fa-play"></i><span>Play</span></button>
+            <button class="button-item"><i class="fa-solid fa-border-all"></i><span>More Like This</span></button>
+            <button class="button-item"><i class="fa-solid fa-closed-captioning"></i><span>Audio & Subtitles</span></button>
+            <button class="button-item"><i class="fa-solid fa-plus"></i><span>Add to My List</span></button>
+            <button class="button-item"><i class="fa-solid fa-users"></i><span>credits & More Info</span></button>
+            <button class="button-item back-btn">Back Home</button>
         </div>
-        <button><i class="fa-solid fa-play"></i><span>Play</span></button>
-        <button><i class="fa-solid fa-border-all"></i><span>More Like This</span></button>
-        <button><i class="fa-solid fa-closed-captioning"></i><span>Audio & Subtitles</span></button>
-        <button><i class="fa-solid fa-plus"></i><span>Add to My List</span></button>
-        <button class="back-btn">Back Home</button>
+    </div>
+    <div class="img-container">
     </div>
 </body>
 <!--jQuery Code-->
@@ -66,30 +88,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <!--Font Awesome-->
 <script src="https://kit.fontawesome.com/f06ad63a54.js" crossorigin="anonymous"></script>
-<script>
+<script type="module">
     //JS Code and JQuery
+    import {fillPage} from "./movieSelection.js";
     $(document).ready(function(){
         fillPage();
-
-        function fillPage() {
-            $(".filmType").html(localStorage.getItem('filmType'));
-            $(".title").html(localStorage.getItem('title'));
-            $(".description").html(localStorage.getItem('description'));
-            $(".rating").html(localStorage.getItem('rating'));
-            $(".releaseYear").html(localStorage.getItem('releaseYear'));
-            $(".movieRating").html(localStorage.getItem('movieRating'));
-            $(".movieDuration").html(localStorage.getItem('movieDuration'));
-            $("body").css({"background-image": localStorage.getItem("image")});
-            $(".director-input").html(localStorage.getItem("director"));
-            $(".cast-input").html(localStorage.getItem("cast"));
-            console.log(localStorage.getItem("genre"));
-            $(".genres-input").html(localStorage.getItem("genre"));
-        }
-
-        $(".back-btn").click(function(){
-            location.replace("./netflixClone.html");
-        });
     });
 </script>
+<script src="navbar.js" type="module"></script>
+<script src="movieSelection.js" type="module"></script>
+<script src="netflixClone.js" type="module"></script>
+<script src="popup.js"></script>
 
 </html>

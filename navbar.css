@@ -13,7 +13,7 @@
     /* border: 2px solid blue; */
     font-size: 1.8rem;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
 }
 
 .navbar-nav{
@@ -41,4 +41,31 @@
 
 .navbar-item:hover .nav-icon{
     transform: scale(1.3);
+}
+
+.active{
+    padding-bottom: 4px;
+    border-bottom: 4px solid red;
+}
+
+.notification-popUp{
+    visibility: hidden;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 1);
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    left: 36px;
+    bottom: 36px;
+    font-size: 0.4em;
+    color: white;
+}
+
+.nav:hover .show{
+    visibility: visible;
+    transform: scale(1.4);
+    font-size: 0.6em;
+    text-align: center;
 }
